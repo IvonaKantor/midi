@@ -1,4 +1,4 @@
-package org.example;
+package org.example.outer_inner;
 
 public class MyOuterClass {
 
@@ -8,7 +8,7 @@ public class MyOuterClass {
     public void doStuff(){
         inner.go();
     }
-    
+
     class MyIneerClass{
         void go(){
             x = 42;
