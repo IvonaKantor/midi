@@ -19,7 +19,7 @@ public class MyDrawPanel extends JPanel{
     }
 
     
-    public void Graphics2D(Graphics g){
+    public static void Graphics2D(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
 
         GradientPaint gradient = new GradientPaint(70, 70, Color.blue, 150, 150,Color.orange);
@@ -47,4 +47,6 @@ public class MyDrawPanel extends JPanel{
         g2d.fillOval(70, 70, 100, 100);
         
     }
+
+
 }
