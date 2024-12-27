@@ -1,6 +1,6 @@
 package org.example.outer_inner;
 
-import org.example.MyDrawPanel;
+import org.example.beatB.MyDrawPanel;
 
 import javax.swing.*;
 import java.awt.*;
