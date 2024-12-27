@@ -1,5 +1,5 @@
 package org.example.SimpleGui;
-import org.example.MyDrawPanel;
+import org.example.beatB.MyDrawPanel;
 
 import javax.swing.*;
 import java.awt.*;
