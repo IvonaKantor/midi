@@ -2,8 +2,7 @@ package org.example.button;
 import javax.swing.*;
 import java.awt.*;
 
-public class Button1 {
-
+public class BorderLayout {
     public static void main(String[] argc){
         Button1 gui = new Button1();
         gui.go_east();
