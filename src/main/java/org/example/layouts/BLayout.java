@@ -1,8 +1,8 @@
-package org.example.button;
+package org.example.layouts;
 import javax.swing.*;
 import java.awt.*;
 
-public class BorderLayout {
+public class BLayout {
     public static void main(String[] argc){
         Button1 gui = new Button1();
         gui.go();

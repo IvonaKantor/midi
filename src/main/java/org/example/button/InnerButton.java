@@ -1,7 +1,8 @@
 package org.example.button;
+import org.example.layouts.BorderLayout;
+
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
 
 public class InnerButton {
 
