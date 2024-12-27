@@ -1,4 +1,4 @@
-package org.example;
+package org.example.beatB;
 import javax.sound.midi.*;
 
 public class MiniMusicCmdLine {

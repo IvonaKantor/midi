@@ -1,4 +1,4 @@
-package org.example;
+package org.example.beatB;
 import java.awt.*;
 import javax.swing.*;
 
