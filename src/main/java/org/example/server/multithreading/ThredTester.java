@@ -8,6 +8,6 @@ public class ThredTester {
 
         myThread.start();
 
-        System.out.println("main thread started");
+        System.out.println("return to the main");
     }
 }
