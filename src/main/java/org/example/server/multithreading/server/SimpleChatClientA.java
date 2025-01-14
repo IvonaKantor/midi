@@ -1,4 +1,4 @@
-package org.example.server;
+package org.example.server.multithreading.server;
 import java.io.*;
 import java.net.*;
 import javax.swing.*;
