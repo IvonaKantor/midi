@@ -11,7 +11,7 @@ public class TestSync implements Runnable {
         }
     }
 
-    public void increment(){
+    public synchronized void increment(){
         int i = balance;
         balance = i + 1;
     }
