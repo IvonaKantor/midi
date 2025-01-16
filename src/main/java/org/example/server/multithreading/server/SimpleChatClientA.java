@@ -1,19 +1,26 @@
 package org.example.server.multithreading.server;
 import java.io.*;
 import java.net.*;
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class SimpleChatClientA {
 
+    JTextArea incoming;
     JTextField outgoing;
+    BufferedReader reader;
     PrintWriter writer;
     Socket sock;
 
     public void go(){
         JFrame frame = new JFrame("Chat Client");
         JPanel mainPanel = new JPanel();
+        incoming = new JTextArea(15,50);
+        incoming.setLineWrap(true);
+        incoming.setWrapStyleWord(true);
+        incoming.setEditable(false);
         outgoing = new JTextField(20);
         JButton sendButton = new JButton("Send");
         sendButton.addActionListener(new SendButtonListener());
@@ -49,6 +56,7 @@ public class SimpleChatClientA {
     }
 
     public static void main(String[] args) {
-        new SimpleChatClientA().go();
+        SimpleChatClientA client = new SimpleChatClientA();
+        client.go();
     }
 }
