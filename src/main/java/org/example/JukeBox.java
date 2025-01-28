@@ -13,11 +13,13 @@ public class JukeBox {
     public void go(){
         getSongs();
         System.out.println(songList);
+        Collections.sort(songList);
+        System.out.println(songList);
     }
 
     void getSongs(){
         try{
-            File file = new File("Songs.txt");
+            File file = new File("SongList.txt");
             BufferedReader reader   = new BufferedReader(new FileReader(file));
             String line = null;
             while((line = reader.readLine()) != null){
@@ -28,7 +30,7 @@ public class JukeBox {
     }
 
     void addSong(String lineToParse){
-        String[] tokes = lineToParse.split("/");
-        songList.add(tokes[0]);
+        String[] tokens = lineToParse.split("/");
+        songList.add(tokens[0]);
     }
 }
