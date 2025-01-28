@@ -3,7 +3,6 @@ import java.util.*;
 import java.io.*;
 
 public class JukeBox {
-
     ArrayList<String> songList = new ArrayList<>();
 
     public static void main(String[] args){
@@ -20,7 +19,7 @@ public class JukeBox {
     void getSongs(){
         try{
             File file = new File("SongList.txt");
-            BufferedReader reader   = new BufferedReader(new FileReader(file));
+            BufferedReader reader = new BufferedReader(new FileReader(file));
             String line = null;
             while((line = reader.readLine()) != null){
                 addSong(line);
