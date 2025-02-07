@@ -21,7 +21,7 @@ public class JukeBox {
         Collections.sort(songList);
         System.out.println(songList);
 
-        HashSet<Song> songSet = new HashSet<Song>(songList);
+        TreeSet<Song> songSet = new TreeSet<Song>(songList);
         System.out.println(songSet);
     }
 
