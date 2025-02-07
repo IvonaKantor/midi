@@ -21,8 +21,9 @@ public class JukeBox {
         Collections.sort(songList);
         System.out.println(songList);
 
-        ArtistCompare artistCompare = new ArtistCompare();
-        Collections.sort(songList, artistCompare);
+        HashSet<Song> songset = new HashSet<Song>();
+        songset.addAll(songList);
+        System.out.println(songset);
     }
 
     void getSongs(){
