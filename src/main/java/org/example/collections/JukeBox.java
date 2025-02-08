@@ -9,7 +9,7 @@ public class JukeBox {
         new JukeBox().go();
     }
 
-    class ArtistCompare implements Comparator<Song>{
+    static class ArtistCompare implements Comparator<Song>{
         public int compare(Song one, Song two){
             return one.getArtist().compareTo(two.getArtist());
         }
