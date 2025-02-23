@@ -1,4 +1,4 @@
-package org.example.server.multithreading;
+package org.example.server.multithreading.threads;
 
 public class ThredTester {
     public static void main(String[] args) {
