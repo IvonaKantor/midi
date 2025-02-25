@@ -28,4 +28,13 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
         Service service = (Service) serviceList.get(serviceKey);
         return service;
     }
+
+    public static void main(String[] args) {
+        try {
+            Naming.rebind("ServiceServer", new ServiceServerImpl());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Remote service is running");
+    }
 }
