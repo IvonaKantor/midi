@@ -37,4 +37,6 @@ public class ServiceBrowser {
             e.printStackTrace();
         }
     }
+
+    Object getServicesList(){}
 }
