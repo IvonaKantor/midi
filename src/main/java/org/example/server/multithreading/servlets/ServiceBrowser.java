@@ -24,4 +24,17 @@ public class ServiceBrowser {
         frame.setSize(500, 500);
         frame.setVisible(true);
     }
+
+    void loadService(Object serviceSelection) {
+        try {
+            Service svc = server.getService(serviceSelection);
+
+            mainPanel.removeAll();
+            mainPanel.add(svc.getGuiPanel());
+            mainPanel.validate();
+            mainPanel.repaint();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
