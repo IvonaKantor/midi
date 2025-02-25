@@ -38,5 +38,14 @@ public class ServiceBrowser {
         }
     }
 
-    Object getServicesList(){}
+    Object getServicesList() {
+        Object obj = null;
+        Object[] services = null;
+
+        try {
+            obj = Naming.lookup("rmi://127.0.0.1/ServiceServer");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
