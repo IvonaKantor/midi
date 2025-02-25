@@ -1,4 +1,5 @@
 package org.example.server.multithreading.servlets;
+
 import java.rmi.*;
 import java.util.*;
 import java.rmi.server.*;
@@ -16,5 +17,15 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
         serviceList.put("Dice Rolling Service", new DiceService());
         serviceList.put("Day of the Week Service", new DayOfTheWeekService());
         serviceList.put("Visual Music Service", new MiniMusicService());
+    }
+
+    public Object[] getServiceList() {
+        System.out.println("in remote");
+        return serviceList.keySet().toArray();
+    }
+
+    public Service getService(Object serviceKey) throws RemoteException {
+        Service service = (Service) serviceList.get(serviceKey);
+        return service;
     }
 }
