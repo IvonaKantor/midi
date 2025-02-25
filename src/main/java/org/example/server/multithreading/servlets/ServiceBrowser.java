@@ -47,5 +47,24 @@ public class ServiceBrowser {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        server = (ServiceServer) obj;
+
+        try {
+            services = server.getServiceList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return services;
+    }
+
+    class MyListListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+
+            Object selection = serviceList.getSelectedItem();
+        }
+    }
+
+    public static void main(String[] args){
+        new ServiceBrowser().buildGUI();
     }
 }
