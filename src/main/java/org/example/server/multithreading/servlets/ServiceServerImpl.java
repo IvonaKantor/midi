@@ -24,6 +24,11 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
         return serviceList.keySet().toArray();
     }
 
+    @Override
+    public Object[] getServices() throws RemoteException {
+        return new Object[0];
+    }
+
     public Service getService(Object serviceKey) throws RemoteException {
         Service service = (Service) serviceList.get(serviceKey);
         return service;
