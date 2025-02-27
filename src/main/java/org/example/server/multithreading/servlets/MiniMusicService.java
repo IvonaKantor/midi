@@ -9,4 +9,9 @@ import java.awt.event.*;
 
 public class MiniMusicService implements Service{
     MyDrawPanel myPanel;
+
+    public JPanel getGuiPanel(){
+        JPanel mainPanel = new JPanel();
+        myPanel = new MyDrawPanel();
+    }
 }
