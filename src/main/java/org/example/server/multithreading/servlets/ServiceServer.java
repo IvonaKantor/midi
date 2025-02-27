@@ -6,4 +6,6 @@ public interface ServiceServer extends Remote {
     Object[] getServices() throws RemoteException;
 
     Service getService(Object name) throws RemoteException;
+
+    Object[] getServiceList();
 }
