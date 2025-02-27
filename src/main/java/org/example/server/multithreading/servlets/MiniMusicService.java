@@ -21,6 +21,20 @@ public class MiniMusicService implements Service{
     }
 
     public class PlayItListener implements ActionListener{
-        public void actionPerformed(ActionEvent e) {}
+        public void actionPerformed(ActionEvent e) {
+
+            try{
+                Sequencer sequencer = MidiSystem.getSequencer();
+                sequencer.open();
+
+                sequencer.addControllerEventListener(myPanel, new int[]{127});
+                Sequence seq = new Sequence(Sequence.PPQ, 4);
+                Track track = seq.createTrack();
+
+                for(int i = 0; i<100; i+=4){}
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
     }
 }
