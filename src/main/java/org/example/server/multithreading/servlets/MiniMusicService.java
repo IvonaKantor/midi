@@ -1,4 +1,5 @@
 package org.example.server.multithreading.servlets;
+
 import org.example.beatB.MyDrawPanel;
 
 import javax.sound.midi.*;
@@ -7,10 +8,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MiniMusicService implements Service{
+public class MiniMusicService implements Service {
     MyDrawPanel myPanel;
 
-    public JPanel getGuiPanel(){
+    public JPanel getGuiPanel() {
         JPanel mainPanel = new JPanel();
         myPanel = new MyDrawPanel();
         JButton playItButton = new JButton("Play It");
@@ -20,10 +21,10 @@ public class MiniMusicService implements Service{
         return mainPanel;
     }
 
-    public class PlayItListener implements ActionListener{
+    public class PlayItListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
 
-            try{
+            try {
                 Sequencer sequencer = MidiSystem.getSequencer();
                 sequencer.open();
 
@@ -31,8 +32,16 @@ public class MiniMusicService implements Service{
                 Sequence seq = new Sequence(Sequence.PPQ, 4);
                 Track track = seq.createTrack();
 
-                for(int i = 0; i<100; i+=4){}
-            }catch (Exception ex){
+                for (int i = 0; i < 100; i += 4) {
+                    int rNum = (int) ((Math.random() * 50) + 1);
+                    if (rNum < 38) {
+                        track.add(makeEvent(144, 1, rNum, 100, i));
+                        track.add(makeEvent(176, 1, 127, 0, i));
+                        track.add(makeEvent(128, 1, rNum, 100, i + 2));
+                    }
+                }
+
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
