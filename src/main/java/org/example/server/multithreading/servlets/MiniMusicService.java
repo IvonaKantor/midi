@@ -40,10 +40,14 @@ public class MiniMusicService implements Service {
                         track.add(makeEvent(128, 1, rNum, 100, i + 2));
                     }
                 }
-
+                sequencer.setSequence(seq);
+                sequencer.start();
+                sequencer.setTempoInBPM(220);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
     }
+
+    public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {}
 }
