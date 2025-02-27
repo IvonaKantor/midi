@@ -13,5 +13,14 @@ public class MiniMusicService implements Service{
     public JPanel getGuiPanel(){
         JPanel mainPanel = new JPanel();
         myPanel = new MyDrawPanel();
+        JButton playItButton = new JButton("Play It");
+        playItButton.addActionListener(new PlayItListener());
+        mainPanel.add(myPanel);
+        mainPanel.add(playItButton);
+        return mainPanel;
+    }
+
+    public class PlayItListener implements ActionListener{
+        public void actionPerformed(ActionEvent e) {}
     }
 }
