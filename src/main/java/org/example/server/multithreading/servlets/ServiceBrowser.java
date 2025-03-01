@@ -56,6 +56,14 @@ public class ServiceBrowser {
         }
         return services;
     }
+
+    class MyListListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+
+            Object selection = serviceList.getSelectedItem();
+            loadService(selection);
+        }
+    }
 }
 
 
