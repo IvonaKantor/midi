@@ -64,6 +64,10 @@ public class ServiceBrowser {
             loadService(selection);
         }
     }
+
+    public static void main(String[] args){
+        new ServiceBrowser().buildGUI();
+    }
 }
 
 
