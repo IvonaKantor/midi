@@ -50,6 +50,7 @@ public class ServiceBrowser {
         server = (ServiceServer) obj;
 
         try {
+            assert server != null;
             services = server.getServiceList();
         } catch (Exception e) {
             e.printStackTrace();
