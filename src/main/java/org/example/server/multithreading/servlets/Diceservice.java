@@ -2,7 +2,6 @@ package org.example.server.multithreading.servlets;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.*;
 
 public class Diceservice implements Service{
     JLabel label;
@@ -23,15 +22,15 @@ public class Diceservice implements Service{
 
     public class RollEmListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            String diceOutput = " ";
+            StringBuilder diceOutput = new StringBuilder(" ");
             String selection = (String) numOfDice.getSelectedItem();
             assert selection != null;
             int numOfDiceToRoll = Integer.parseInt(selection);
             for (int i = 0; i < numOfDiceToRoll; i++) {
                 int r = (int) (Math.random() * 6) + 1;
-                diceOutput += r + " ";
+                diceOutput.append(r).append(" ");
             }
-            label.setText(diceOutput);
+            label.setText(diceOutput.toString());
         }
     }
 }
