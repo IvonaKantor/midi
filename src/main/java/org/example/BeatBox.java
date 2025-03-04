@@ -255,6 +255,15 @@ public class BeatBox {
         }
     }
 
+    public class MyPlayListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+            if(mySequence != null) {
+                sequence = mySequence;
+            }
+        }
+    }
+
+    public void changeSequece(boolean[] checkboxState) {}
 
     public void makeTracks(ArrayList<Integer> list) {
         for (int i = 0; i < 16; i++) {
