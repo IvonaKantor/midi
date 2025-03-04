@@ -250,6 +250,14 @@ public class BeatBox {
         }
     }
 
+    public class MyPlayMineListener implements ActionListener {
+        public void actionPerformed(ActionEvent a) {
+            if (mySequence != null) {
+                sequence = mySequence;
+            }
+        }
+    }
+
     public void changeSequece(boolean[] checkboxState) {
         for (int i = 0; i < 256; i++) {
             JCheckBox check = (JCheckBox) checkboxList.get(i);
@@ -261,12 +269,12 @@ public class BeatBox {
         }
     }
 
-    public void makeTracks(ArrayList<Integer> list) {
-        Iterator<Integer> iter = list.iterator();
+    public void makeTracks(ArrayList list) {
+        Iterator iter = list.iterator();
         for (int i = 0; i < 16; i++) {
-            Integer num = iter.next();
+            Integer num = (Integer) iter.next();
             if (num != null) {
-                int numKey = 0;
+                int numKey = num;
                 track.add(makeEvent(144, 9, numKey, 100, i));
                 track.add(makeEvent(128, 9, numKey, 100, i + 1));
             }
@@ -274,16 +282,12 @@ public class BeatBox {
     }
 
     public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
-        return getMidiEvent(comd, chan, one, two, tick);
-    }
-
-    public static MidiEvent getMidiEvent(int comd, int chan, int one, int two, int tick) {
         MidiEvent event = null;
-        try {
+        try{
             ShortMessage a = new ShortMessage();
             a.setMessage(comd, chan, one, two);
             event = new MidiEvent(a, tick);
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
         }
         return event;
