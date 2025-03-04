@@ -51,11 +51,11 @@ public class MiniMusicService implements Service {
 
     public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
         MidiEvent event = null;
-        try{
+        try {
             ShortMessage a = new ShortMessage();
             a.setMessage(comd, chan, one, two);
-            event = new MidiEvent(a,tick);
-        }catch(Exception e){
+            event = new MidiEvent(a, tick);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return event;
