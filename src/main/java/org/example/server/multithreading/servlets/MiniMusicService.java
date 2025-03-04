@@ -62,6 +62,12 @@ public class MiniMusicService implements Service {
     }
 
     class MyDrawPanel extends JPanel implements ControllerEventListener {
+
         boolean msg = false;
+
+        public void controlChange(ShortMessage event){
+            msg = true;
+            repaint();
+        }
     }
 }
