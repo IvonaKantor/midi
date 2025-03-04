@@ -15,5 +15,28 @@ public class DayOfTheWeekService implements Service {
     JTextField year;
 
     public JPanel getGuiPanel() {
+
+        JPanel panel = new JPanel();
+        JButton button = new JButton("click it");
+        button.addActionListener(new DoItListener());
+        outputLabel = new JLabel("data appears");
+        DateFormatSymbols dataStuff = new DateFormatSymbols();
+        month = new JComboBox(dataStuff.getMonths());
+        day = new JTextField(8);
+        year = new JTextField(8);
+        JPanel inputPanel = new JPanel(new GridLayout(3, 2));
+        inputPanel.add(new JLabel("Month"));
+        inputPanel.add(month);
+        inputPanel.add(new JLabel("Day"));
+        inputPanel.add(day);
+        inputPanel.add(new JLabel("Year"));
+        inputPanel.add(year);
+        panel.add(button);
+        panel.add(outputLabel);
+        panel.add(inputPanel);
+        return panel;
+    }
+
+    public class DoItListener implements ActionListener {
     }
 }
