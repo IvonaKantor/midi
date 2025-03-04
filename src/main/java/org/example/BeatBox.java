@@ -233,6 +233,29 @@ public class BeatBox {
         }
     }
 
+    public class RemoteReader implements Runnable {
+        boolean[] checkboxState = null;
+        String nameToShow = null;
+        Object obj = null;
+
+        public void run() {
+            try {
+                while ((obj = in.readObject()) != null) {
+                    System.out.println("got an object from server");
+                    System.out.println(obj.getClass());
+                    String nameToShow = (String) obj;
+                    checkboxState = (boolean[]) in.readObject();
+                    otherSeqsMap.put(nameToShow, checkboxState);
+                    listVector.add(nameToShow);
+                    incomingList.setListData(listVector);
+                }
+            } catch (ClassNotFoundException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
     public void makeTracks(ArrayList<Integer> list) {
         for (int i = 0; i < 16; i++) {
             int key = list.get(i);
