@@ -7,5 +7,13 @@ import java.io.*;
 import java.util.*;
 import java.text.*;
 
-public class DayOfTheWeekService {
+public class DayOfTheWeekService implements Service {
+
+    JLabel outputLabel;
+    JComboBox month;
+    JTextField day;
+    JTextField year;
+
+    public JPanel getGuiPanel() {
+    }
 }
