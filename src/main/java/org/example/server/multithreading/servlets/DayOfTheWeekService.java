@@ -3,7 +3,6 @@ package org.example.server.multithreading.servlets;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
-import java.io.*;
 import java.util.*;
 import java.text.*;
 
@@ -38,5 +37,17 @@ public class DayOfTheWeekService implements Service {
     }
 
     public class DoItListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            int monthNum = month.getSelectedIndex();
+            int dayNum = Integer.parseInt(day.getText());
+            int yearNum = Integer.parseInt(year.getText());
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.MONTH, monthNum);
+            calendar.set(Calendar.DAY_OF_MONTH, dayNum);
+            calendar.set(Calendar.YEAR, yearNum);
+            Date date = calendar.getTime();
+            String dayOfTheWeek = (new SimpleDateFormat("EEEE")).format(date);
+            outputLabel.setText(dayOfTheWeek);
+        }
     }
 }
