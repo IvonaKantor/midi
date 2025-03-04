@@ -14,7 +14,7 @@ public class ServiceServerImpl extends UnicastRemoteObject implements ServiceSer
 
     private void setUpServices() throws RemoteException {
         serviceList = new HashMap();
-        serviceList.put("Dice Rolling Service", new DiceService());
+        serviceList.put("Dice Rolling Service", new Diceservice());
         serviceList.put("Day of the Week Service", new DayOfTheWeekService());
         serviceList.put("Visual Music Service", new MiniMusicService());
     }
