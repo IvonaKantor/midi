@@ -8,12 +8,23 @@ import java.awt.event.*;
 
 public class BeatBox {
 
+    JFrame theFrame;
+    JList incomingList;
+    JTextField userMessage;
     JPanel mainPanel;
     ArrayList<JCheckBox> checkboxList;
+    int nextNum;
+    Vector<String> listVector = new Vector<String>();
+    String usermane;
+    ObjectOutputStream out;
+    ObjectInputStream in;
+    HashMap<String, boolean[]> otherSeqsMap = new HashMap<String, boolean[]>();
+
     Sequencer sequencer;
     Sequence sequence;
+    Sequence mySequence = null;
     Track track;
-    JFrame theFrame;
+
 
     String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat",
     "Acoustic Snare", "Crash Cymbal", "Hand Clap", "High Tom", "Hi Bongo",
@@ -23,7 +34,11 @@ public class BeatBox {
     int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
 
     public static void main(String[] argc){
-        new BeatBox().buildGUI();
+        new BeatBox().startUp(args[0]);
+    }
+
+    public void startUp(String fileName) {
+        usermane = fileName;
     }
 
     public void buildGUI(){
