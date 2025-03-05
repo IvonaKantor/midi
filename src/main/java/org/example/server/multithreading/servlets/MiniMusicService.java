@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import static org.example.BeatBox.getMidiEvent;
 
 public class MiniMusicService implements Service {
     MyDrawPanel myPanel;
@@ -50,6 +49,11 @@ public class MiniMusicService implements Service {
 
     public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
         return getMidiEvent(comd, chan, one, two, tick);
+    }
+
+    private MidiEvent getMidiEvent(int comd, int chan, int one, int two, int tick) {
+
+        return null;
     }
 
     static class MyDrawPanel extends JPanel implements ControllerEventListener {
