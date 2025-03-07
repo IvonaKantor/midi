@@ -16,7 +16,7 @@ public class TwoButtons {
         gui.go();
     }
 
-    public void go(){
+    public void go() {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
