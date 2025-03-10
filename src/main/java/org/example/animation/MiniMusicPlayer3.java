@@ -50,11 +50,11 @@ public class MiniMusicPlayer3 {
             ShortMessage a = new ShortMessage();
             a.setMessage(comd, chan, one, two);
             event = new MidiEvent(a, tick);
-        } catch (Exception e) { }
+        } catch (Exception ignored) { }
         return event;
     }
 
-    public class MyDrawPanel extends JPanel implements ControllerEventListener {
+    public static class MyDrawPanel extends JPanel implements ControllerEventListener {
 
         boolean msg = false;
 
