@@ -1,8 +1,8 @@
 package org.example.animation;
+
 import org.example.beatB.MyDrawPanel;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class SimpleAnimation {
 
@@ -14,7 +14,7 @@ public class SimpleAnimation {
         gui.go();
     }
 
-    public void go(){
+    public void go() {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -24,25 +24,16 @@ public class SimpleAnimation {
         frame.setSize(300, 300);
         frame.setVisible(true);
 
-        for(int i = 0; i < 130; i++){
+        for (int i = 0; i < 130; i++) {
             x++;
             y++;
 
             panel.repaint();
 
-            try{
+            try {
                 Thread.sleep(100);
-            }catch(Exception e){}
-        }
-    }
-
-    public class paintComponent extends JPanel {
-        public void paintComponent(Graphics g) {
-            g.setColor(Color.white);
-            g.fillRect(0, 0, getWidth(), getHeight());
-
-            g.setColor(Color.green);
-            g.fillOval(x, y, 40, 40);
+            } catch (Exception ignored) {
+            }
         }
     }
 }
