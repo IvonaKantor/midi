@@ -3,15 +3,15 @@ import java.util.*;
 
 public class Sort {
 
-    LinkedList<Mountain> mtn = new LinkedList<Mountain>();
+    LinkedList<Mountain> mtn = new LinkedList<>();
 
-    class NameCompare implements Comparator<Mountain> {
+    static class NameCompare implements Comparator<Mountain> {
         public int compare(Mountain mo1, Mountain mo2) {
             return mo1.toString().compareTo(mo2.toString());
         }
     }
 
-    class HeightCompare implements Comparator<Mountain> {
+    static class HeightCompare implements Comparator<Mountain> {
         public int compare(Mountain mo1, Mountain mo2) {
             return (mo2.height - mo2.height);
         }
