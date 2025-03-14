@@ -137,19 +137,19 @@ public class BeatBox {
     }
 
     public void buildTrackAndStart() {
-        ArrayList<Integer> trackList = null;
+        ArrayList<Integer> trackList;
         sequence.deleteTrack(track);
         track = sequence.createTrack();
 
         for (int i = 0; i < 16; i++) {
 
-            trackList = new ArrayList<Integer>();
+            trackList = new ArrayList<>();
 
             for (int j = 0; j < 16; j++) {
                 JCheckBox jc = checkboxList.get(j + (16 * i));
                 if (jc.isSelected()) {
                     int key = instruments[i];
-                    trackList.add(new Integer(key));
+                    trackList.add(key);
                 } else {
                     trackList.add(null);
                 }
