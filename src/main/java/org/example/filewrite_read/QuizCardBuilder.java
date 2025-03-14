@@ -1,4 +1,5 @@
 package org.example.filewrite_read;
+
 import java.util.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -12,17 +13,17 @@ public class QuizCardBuilder {
     private ArrayList<QuizCard> cardList;
     private JFrame frame;
 
-    public static void main(String[] argc){
+    public static void main(String[] argc) {
 
         QuizCardBuilder builder = new QuizCardBuilder();
         builder.go();
     }
 
-    public void go(){
+    public void go() {
         frame = new JFrame("Quiz Card Builder");
         JPanel mainPanel = new JPanel();
         Font bigFont = new Font("sanserif", Font.BOLD, 24);
-        question = new JTextArea(6,20);
+        question = new JTextArea(6, 20);
         question.setLineWrap(true);
         question.setWrapStyleWord(true);
         question.setFont(bigFont);
@@ -31,7 +32,7 @@ public class QuizCardBuilder {
         qScroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         qScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        answer = new JTextArea(6,20);
+        answer = new JTextArea(6, 20);
         answer.setLineWrap(true);
         answer.setWrapStyleWord(true);
         answer.setFont(bigFont);
@@ -41,7 +42,7 @@ public class QuizCardBuilder {
         aScroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         JButton nextButton = new JButton("Next Card");
-        cardList = new ArrayList<QuizCard>();
+        cardList = new ArrayList<>();
 
         JLabel qLabel = new JLabel("Question:");
         JLabel aLabel = new JLabel("Answer:");
@@ -64,12 +65,12 @@ public class QuizCardBuilder {
         menuBar.add(fileMenu);
         frame.setJMenuBar(menuBar);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(500,600);
+        frame.setSize(500, 600);
         frame.setVisible(true);
     }
 
-    public class NextCardListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
+    public class NextCardListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
 
             QuizCard card = new QuizCard(question.getText(), answer.getText());
             cardList.add(card);
@@ -77,8 +78,8 @@ public class QuizCardBuilder {
         }
     }
 
-    public class SaveMenuListener implements ActionListener{
-        public void actionPerformed(ActionEvent ev){
+    public class SaveMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
             QuizCard card = new QuizCard(question.getText(), answer.getText());
             cardList.add(card);
 
@@ -88,46 +89,31 @@ public class QuizCardBuilder {
         }
     }
 
-    public class NewMenuListener implements ActionListener{
-        public void actionPerformed(ActionEvent ev){
+    public class NewMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
             cardList.clear();
             clearCard();
         }
     }
 
-    private void clearCard(){
+    private void clearCard() {
         question.setText("");
         answer.setText("");
         question.requestFocus();
     }
 
-    private void saveFile(File file){
-        try{
+    private void saveFile(File file) {
+        try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 
-            for(QuizCard card: cardList){
+            for (QuizCard card : cardList) {
                 writer.write(card.getQuestion() + "/");
                 writer.write(card.getAnswer() + "/n");
             }
             writer.close();
-        }catch(IOException e){
-            System.out.println("couldn't write the cardList out");
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new Error("couldn't write the cardList out");
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
