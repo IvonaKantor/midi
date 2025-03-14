@@ -31,7 +31,7 @@ public class MiniMusicPlayer3 {
             Sequence seq = new Sequence(Sequence.PPQ, 4);
             Track track = seq.createTrack();
 
-            int r = 0;
+            int r;
             for (int i = 0; i < 60; i += 4) {
                 r = (int) ((Math.random() * 50) + 1);
                 track.add(makeEvent(144, 1, r, 100, i));
@@ -62,7 +62,6 @@ public class MiniMusicPlayer3 {
 
         public void paintComponent(Graphics g) {
             if (msg) {
-                Graphics2D g2 = (Graphics2D) g;
 
                 int r = (int) (Math.random() * 250);
                 int gr = (int) (Math.random() * 250);
@@ -74,7 +73,7 @@ public class MiniMusicPlayer3 {
                 int width = (int) ((Math.random() * 120) + 10);
                 int x = (int) ((Math.random() * 40) + 10);
                 int y = (int) ((Math.random() * 40) + 10);
-                g.fillRect(x, y, height, width);
+                g.fillRect(x, y, width, height);
                 msg = false;
             }
         }
