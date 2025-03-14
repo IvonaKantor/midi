@@ -1,4 +1,5 @@
 package org.example.collections.sortMountains;
+
 import java.util.*;
 
 public class Sort {
@@ -13,7 +14,7 @@ public class Sort {
 
     static class HeightCompare implements Comparator<Mountain> {
         public int compare(Mountain mo1, Mountain mo2) {
-            return (mo2.height - mo2.height);
+            return (mo1.height - mo2.height);
         }
     }
 
@@ -29,10 +30,10 @@ public class Sort {
 
         System.out.println("Mountains in ascending order:\n" + mtn);
         NameCompare nc = new NameCompare();
-        Collections.sort(mtn, nc);
+        mtn.sort(nc);
         System.out.println("Mountains in descending order:\n" + mtn);
         HeightCompare hc = new HeightCompare();
-        Collections.sort(mtn, hc);
+        mtn.sort(hc);
         System.out.println("Mountains in ascending order:\n" + mtn);
     }
 }
