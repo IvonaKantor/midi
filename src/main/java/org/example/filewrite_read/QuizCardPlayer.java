@@ -1,4 +1,5 @@
 package org.example.filewrite_read;
+
 import java.util.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -8,7 +9,6 @@ import java.io.*;
 public class QuizCardPlayer {
 
     private JTextArea display;
-    private JTextArea answer;
     private ArrayList<QuizCard> cardList;
     private QuizCard currentCard;
     private int currentCardIndex;
@@ -16,18 +16,18 @@ public class QuizCardPlayer {
     private JButton nextButton;
     private boolean isShowAnswer;
 
-    public static void main(String[] argc){
+    public static void main(String[] argc) {
         QuizCardPlayer reader = new QuizCardPlayer();
         reader.go();
     }
 
-    public void go(){
+    public void go() {
 
         frame = new JFrame("Quiz Card Player");
         JPanel mainPanel = new JPanel();
         Font bigFont = new Font("sanserif", Font.BOLD, 24);
 
-        display = new JTextArea(10,20);
+        display = new JTextArea(10, 20);
         display.setFont(bigFont);
 
         display.setLineWrap(true);
@@ -49,21 +49,21 @@ public class QuizCardPlayer {
         menuBar.add(fileMenu);
         frame.setJMenuBar(menuBar);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(640,500);
+        frame.setSize(640, 500);
         frame.setVisible(true);
     }
 
-    public class NextCardListener implements ActionListener{
-        public void actionPerformed(ActionEvent ev){
+    public class NextCardListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
 
-            if(isShowAnswer){
+            if (isShowAnswer) {
                 display.setText(currentCard.getAnswer());
                 nextButton.setText("Next Card");
                 isShowAnswer = false;
-            }else{
-                if(currentCardIndex < cardList.size()){
+            } else {
+                if (currentCardIndex < cardList.size()) {
                     showNextCard();
-                }else{
+                } else {
                     display.setText("That was last card");
                     nextButton.setEnabled(false);
                 }
@@ -71,8 +71,8 @@ public class QuizCardPlayer {
         }
     }
 
-    public class OpenMenuListener implements ActionListener{
-        public void actionPerformed(ActionEvent ev){
+    public class OpenMenuListener implements ActionListener {
+        public void actionPerformed(ActionEvent ev) {
 
             JFileChooser fileOpen = new JFileChooser();
             fileOpen.showOpenDialog(frame);
@@ -80,30 +80,29 @@ public class QuizCardPlayer {
         }
     }
 
-    private void loadFile(File file){
-        cardList = new ArrayList<QuizCard>();
-        try{
+    private void loadFile(File file) {
+        cardList = new ArrayList<>();
+        try {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line = null;
-            while((line = reader.readLine()) != null){
+            String line;
+            while ((line = reader.readLine()) != null) {
                 makeCard(line);
             }
             reader.close();
-        }catch(Exception ex){
-            System.out.println("couldn't read the card file");
-            ex.printStackTrace();
+        } catch (Exception ex) {
+            throw new Error("couldn't read the card file");
         }
         showNextCard();
     }
 
-    private void makeCard(String lineToParse){
+    private void makeCard(String lineToParse) {
         String[] result = lineToParse.split("/");
         QuizCard card = new QuizCard(result[0], result[1]);
         cardList.add(card);
         System.out.println("made a card");
     }
 
-    private void showNextCard(){
+    private void showNextCard() {
         currentCard = cardList.get(currentCardIndex);
         currentCardIndex++;
         display.setText(currentCard.getQuestion());
@@ -111,13 +110,4 @@ public class QuizCardPlayer {
         isShowAnswer = true;
     }
 }
-
-
-
-
-
-
-
-
-
 
