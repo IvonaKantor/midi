@@ -2,16 +2,14 @@ package org.example.outer_inner;
 
 public class MyOuterClass {
 
-    private int x;
-    MyIneerClass inner = new MyIneerClass();
+    MyInnerClass inner = new MyInnerClass();
 
-    public void doStuff() {
+    private void doStuff() {
         inner.go();
     }
 
-    class MyIneerClass {
+    static class MyInnerClass {
         void go() {
-            x = 42;
         }
     }
 }
