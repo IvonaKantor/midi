@@ -5,7 +5,7 @@ import java.awt.*;
 public class Panel1 {
     public static void main(String[] args) {
         Panel1 gui = new Panel1();
-        //gui.go();
+        gui.go();
         gui.box_lay();
     }
 
