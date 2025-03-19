@@ -1,44 +1,45 @@
 package org.example.layouts;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Button1 {
 
-    public static void main(String[] argc){
+    public static void main(String[] argc) {
         Button1 gui = new Button1();
-        //gui.go_east();
-        //gui.go_north();
-        //gui.go_higher();
+        gui.go_east();
+        gui.go_north();
+        gui.go_higher();
         gui.go();
     }
 
-    public void go_east(){
+    public void go_east() {
         JFrame frame = new JFrame();
         JButton button = new JButton("click me");
         frame.getContentPane().add(BorderLayout.EAST, button);
-        frame.setSize(200,200);
+        frame.setSize(200, 200);
         frame.setVisible(true);
     }
 
-    public void go_north(){
+    public void go_north() {
         JFrame frame = new JFrame();
         JButton button = new JButton("click me");
         frame.getContentPane().add(BorderLayout.NORTH, button);
-        frame.setSize(200,200);
+        frame.setSize(200, 200);
         frame.setVisible(true);
     }
 
-    public void go_higher(){
+    public void go_higher() {
         JFrame frame = new JFrame();
         JButton button = new JButton("click me!");
         Font bigFont = new Font("serif", Font.BOLD, 28);
         button.setFont(bigFont);
         frame.getContentPane().add(BorderLayout.NORTH, button);
-        frame.setSize(200,200);
+        frame.setSize(200, 200);
         frame.setVisible(true);
     }
 
-    public void go(){
+    public void go() {
         JFrame frame = new JFrame();
 
         JButton east = new JButton("East");
@@ -53,7 +54,7 @@ public class Button1 {
         frame.getContentPane().add(BorderLayout.SOUTH, south);
         frame.getContentPane().add(BorderLayout.CENTER, center);
 
-        frame.setSize(300,300);
+        frame.setSize(300, 300);
         frame.setVisible(true);
     }
 }
