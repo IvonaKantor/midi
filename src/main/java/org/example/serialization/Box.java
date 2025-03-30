@@ -1,20 +1,16 @@
 package org.example.serialization;
+
 import java.io.*;
 
-public class Box implements Serializable{
+public class Box implements Serializable {
 
-    private int width;
-    private int height;
-
-    public void setWidth(int w){
-        width=w;
+    public void setWidth(int w) {
     }
 
-    public void setHeight(int h){
-        height=h;
+    public void setHeight(int h) {
     }
 
-    public static void main(String[] argc){
+    public static void main(String[] argc) {
 
         Box myBox = new Box();
         myBox.setWidth(50);
@@ -25,7 +21,7 @@ public class Box implements Serializable{
             ObjectOutputStream os = new ObjectOutputStream(fs);
             os.writeObject(myBox);
             os.close();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
