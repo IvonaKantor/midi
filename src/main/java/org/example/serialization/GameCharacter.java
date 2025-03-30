@@ -21,11 +21,11 @@ public class GameCharacter implements Serializable{
     }
 
     public String getWeapons(){
-        String weaponList = " ";
+        StringBuilder weaponList = new StringBuilder(" ");
 
-        for (int i = 0; i < weapons.length; i++) {
-            weaponList += weapons[i] + " ";
+        for (String weapon : weapons) {
+            weaponList.append(weapon).append(" ");
         }
-        return weaponList;
+        return weaponList.toString();
     }
 }
