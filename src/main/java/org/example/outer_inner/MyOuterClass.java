@@ -10,6 +10,7 @@ public class MyOuterClass {
 
     static class MyInnerClass {
         void go() {
+            System.out.println("MyInnerClass.go");
         }
     }
 }
