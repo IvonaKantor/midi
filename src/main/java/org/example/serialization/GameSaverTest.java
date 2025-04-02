@@ -17,10 +17,6 @@ public class GameSaverTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        one = null;
-        two = null;
-        three = null;
-
         try {
             ObjectInputStream is = new ObjectInputStream(new FileInputStream("Game.ser"));
             GameCharacter oneRestore = (GameCharacter) is.readObject();
