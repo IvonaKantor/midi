@@ -2,7 +2,7 @@ package org.example.server.multithreading.withdrawal;
 
 public class RyanAndMonicaJob implements Runnable {
 
-    private BankAccount account = new BankAccount();
+    private final BankAccount account = new BankAccount();
 
     public static void main(String[] args) {
         RyanAndMonicaJob job = new RyanAndMonicaJob();
