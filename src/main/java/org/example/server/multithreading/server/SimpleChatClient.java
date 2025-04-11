@@ -1,4 +1,5 @@
 package org.example.server.multithreading.server;
+
 import java.io.*;
 import java.net.*;
 import javax.swing.*;
@@ -13,10 +14,10 @@ public class SimpleChatClient {
     PrintWriter writer;
     Socket sock;
 
-    public void go(){
+    public void go() {
         JFrame frame = new JFrame("Chat Client");
         JPanel mainPanel = new JPanel();
-        incoming = new JTextArea(15,50);
+        incoming = new JTextArea(15, 50);
         incoming.setLineWrap(true);
         incoming.setWrapStyleWord(true);
         incoming.setEditable(false);
@@ -33,28 +34,28 @@ public class SimpleChatClient {
         Thread readerThread = new Thread(new IncomingReader());
         readerThread.start();
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(400,500);
+        frame.setSize(400, 500);
         frame.setVisible(true);
     }
 
     public void setUpNetworking() {
-        try{
+        try {
             sock = new Socket("127.0.0.1", 5000);
             InputStreamReader streamReader = new InputStreamReader(sock.getInputStream());
             reader = new BufferedReader(streamReader);
             writer = new PrintWriter(sock.getOutputStream());
             System.out.println("networking established");
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public class SendButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            try{
+            try {
                 writer.println(outgoing.getText());
                 writer.flush();
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
             outgoing.setText("");
@@ -65,12 +66,12 @@ public class SimpleChatClient {
     public class IncomingReader implements Runnable {
         public void run() {
             String message;
-            try{
-                while((message = reader.readLine()) != null){
+            try {
+                while ((message = reader.readLine()) != null) {
                     System.out.println("read " + message);
                     incoming.append(message + "\r\n");
                 }
-            }catch(Exception ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
