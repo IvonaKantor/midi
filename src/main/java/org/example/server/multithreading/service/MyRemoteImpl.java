@@ -6,18 +6,19 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class MyRemoteImpl extends UnicastRemoteObject implements MyRemote {
 
-    public String hello(){
+    public String hello() {
         return "Server says : hello";
     }
 
-    public MyRemoteImpl() throws RemoteException { }
+    public MyRemoteImpl() throws RemoteException {
+    }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        try{
+        try {
             MyRemote service = new MyRemoteImpl();
             Naming.rebind("hello", service);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
