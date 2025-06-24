@@ -3,11 +3,11 @@ package org.example.server.multithreading.servlets;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Diceservice implements Service{
+public class Diceservice implements Service {
     JLabel label;
     JComboBox numOfDice;
 
-    public JPanel getGuiPanel(){
+    public JPanel getGuiPanel() {
         JPanel panel = new JPanel();
         JButton button = new JButton("Roll 'em!");
         String[] choices = {"1", "2", "3", "4", "5"};
@@ -20,8 +20,8 @@ public class Diceservice implements Service{
         return panel;
     }
 
-    public class RollEmListener implements ActionListener{
-        public void actionPerformed(ActionEvent e){
+    public class RollEmListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
             StringBuilder diceOutput = new StringBuilder(" ");
             String selection = (String) numOfDice.getSelectedItem();
             assert selection != null;
